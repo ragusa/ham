@@ -1,45 +1,45 @@
-#include "StorkApp.h"
+#include "HamApp.h"
 #include "Moose.h"
 #include "AppFactory.h"
 #include "ModulesApp.h"
 
 template<>
-InputParameters validParams<StorkApp>()
+InputParameters validParams<HamApp>()
 {
   InputParameters params = validParams<MooseApp>();
   return params;
 }
 
-StorkApp::StorkApp(const std::string & name, InputParameters parameters) :
+HamApp::HamApp(const std::string & name, InputParameters parameters) :
     MooseApp(name, parameters)
 {
   srand(processor_id());
 
   Moose::registerObjects(_factory);
   ModulesApp::registerObjects(_factory);
-  StorkApp::registerObjects(_factory);
+  HamApp::registerObjects(_factory);
 
   Moose::associateSyntax(_syntax, _action_factory);
   ModulesApp::associateSyntax(_syntax, _action_factory);
-  StorkApp::associateSyntax(_syntax, _action_factory);
+  HamApp::associateSyntax(_syntax, _action_factory);
 }
 
-StorkApp::~StorkApp()
+HamApp::~HamApp()
 {
 }
 
 void
-StorkApp::registerApps()
+HamApp::registerApps()
 {
-  registerApp(StorkApp);
+  registerApp(HamApp);
 }
 
 void
-StorkApp::registerObjects(Factory & factory)
+HamApp::registerObjects(Factory & factory)
 {
 }
 
 void
-StorkApp::associateSyntax(Syntax & syntax, ActionFactory & action_factory)
+HamApp::associateSyntax(Syntax & syntax, ActionFactory & action_factory)
 {
 }
