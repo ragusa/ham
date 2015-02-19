@@ -28,6 +28,7 @@ HamApp::~HamApp()
 {
 }
 
+extern "C" void HamApp__registerApps() { HamApp::registerApps(); }
 void
 HamApp::registerApps()
 {
