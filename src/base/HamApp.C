@@ -10,10 +10,9 @@ InputParameters validParams<HamApp>()
   return params;
 }
 
-HamApp::HamApp(const std::string & name, InputParameters parameters) :
-    MooseApp(name, parameters)
+HamApp::HamApp(InputParameters parameters) :
+    MooseApp(parameters)
 {
-  srand(processor_id());
 
   Moose::registerObjects(_factory);
   ModulesApp::registerObjects(_factory);

@@ -11,7 +11,7 @@ InputParameters validParams<HamApp>();
 class HamApp : public MooseApp
 {
 public:
-  HamApp(const std::string & name, InputParameters parameters);
+  HamApp(InputParameters parameters);
   virtual ~HamApp();
 
   static void registerApps();
